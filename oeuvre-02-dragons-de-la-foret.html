@@ -130,7 +130,9 @@
     <div class="ambiance">
       <p class="titre-rubrique">Ambiance sonore</p>
       <p class="sous-titre">Un morceau composé pour accompagner cette œuvre</p>
-      <p class="a-venir">Piste à venir</p>
+      <audio id="ambiance-oeuvre" controls preload="auto" loop>
+        <source src="audio/oeuvre-02-dragons-de-la-foret.mp3" type="audio/mpeg">
+      </audio>
     </div>
 
     <div class="bloc-infos">
@@ -179,6 +181,18 @@
 
   </div>
 </div>
+
+<script>
+  (function(){
+    var audio = document.getElementById('ambiance-oeuvre');
+    if (!audio) return;
+    audio.play().catch(function(){
+      // Lecture automatique bloquée par le navigateur (première visite sans
+      // interaction préalable sur le site) : les contrôles visibles permettent
+      // à la personne de démarrer la piste manuellement.
+    });
+  })();
+</script>
 
 </body>
 </html>
