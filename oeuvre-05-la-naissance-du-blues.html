@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La naissance du blues — Salon des Arts de Sochaux</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivoire: #f6f1e6;
+    --ivoire-carte: #fbf8f1;
+    --encre: #26221c;
+    --encre-douce: #4a4438;
+    --or: #b8903c;
+    --or-clair: #d9b876;
+    --or-vif: #c89a3f;
+    --ligne: #e4dac4;
+    --ombre: rgba(38,34,28,0.14);
+}
+  *{ box-sizing:border-box; }
+  body{ margin:0; background: var(--ivoire); color: var(--encre); font-family: 'EB Garamond', serif; -webkit-font-smoothing: antialiased; }
+  .fond{ position:relative; min-height:100vh; padding: 64px 20px 48px; display:flex; justify-content:center; overflow:hidden; }
+  .fond::before{ content:""; position:absolute; inset:0;
+    background: radial-gradient(ellipse at 15% 8%, rgba(184,144,60,0.07), transparent 45%), radial-gradient(ellipse at 88% 92%, rgba(184,144,60,0.06), transparent 50%);
+    pointer-events:none; }
+  .carte{ position:relative; width:100%; max-width: 620px; background: var(--ivoire-carte); border-radius: 2px; box-shadow: 0 30px 60px -20px var(--ombre); padding: 0 0 44px; overflow:visible; }
+  .retour{ display:block; font-family:'Jost', sans-serif; font-size: 13px; letter-spacing: 0.5px; color: var(--encre-douce); text-decoration:none; padding: 24px 40px 0; }
+  .retour:hover{ color: var(--or); }
+  .en-tete{ text-align:center; padding: 40px 40px 22px; }
+  .eyebrow{ font-family:'Jost', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--or); margin: 0 0 6px; }
+  .serie-label{ font-family:'Jost', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--encre-douce); margin: 0 0 18px; }
+  h1{ font-family:'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(34px, 6vw, 46px); line-height: 1.05; margin: 0; letter-spacing: 0.2px; }
+  .cadre-image{ position:relative; margin: 6px 32px 0; padding: 14px; background: var(--ivoire-carte); }
+  .cadre-image::before{ content:""; position:absolute; inset: 6px; border: 1px solid var(--or-clair); pointer-events:none; }
+  .cadre-image .placeholder{ display:flex; align-items:center; justify-content:center; aspect-ratio: 4/5; background: linear-gradient(150deg, var(--ivoire-carte), var(--ligne));
+    font-family:'Jost', sans-serif; font-size:12px; color: var(--encre-douce); opacity:.65; text-align:center; padding: 20px; }
+  .signature-nova{ font-family:'Cormorant Garamond', serif; font-style: italic; font-size: 12px; color: var(--encre-douce); text-align:right; padding: 8px 6px 0; }
+  .phrases{ padding: 30px 44px 8px; text-align:center; }
+  .phrase{ font-family:'Cormorant Garamond', serif; font-style: italic; font-size: 20px; line-height: 1.5; color: var(--encre); margin: 0; }
+  .separateur-or{ display:flex; align-items:center; justify-content:center; gap: 14px; margin: 16px 0; }
+  .separateur-or::before, .separateur-or::after{ content:""; height:1px; width: 40px; background: var(--ligne); }
+  .separateur-or span{ color: var(--or); font-size: 13px; }
+  .rappel-serie{ margin: 28px 44px 0; padding: 20px 24px; background: rgba(184,144,60,0.06); border-left: 2px solid var(--or); }
+  .rappel-serie .titre-rubrique{ font-family:'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--or); margin: 0 0 8px; }
+  .rappel-serie p{ margin:0; font-size: 16px; line-height: 1.6; color: var(--encre-douce); }
+  .ambiance{ margin: 24px 44px 0; padding: 20px 24px; background: var(--ivoire-carte); border: 1px solid var(--ligne); text-align:center; }
+  .ambiance .titre-rubrique{ font-family:'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--or); margin: 0 0 4px; }
+  .ambiance .sous-titre{ font-family:'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--encre-douce); margin: 0 0 14px; }
+  .ambiance .a-venir{ font-family:'Jost', sans-serif; font-size: 13px; color: var(--encre-douce); opacity: 0.75; padding: 10px 0; border: 1px dashed var(--or-clair); border-radius: 2px; }
+  .bloc-infos{ margin: 30px 44px 0; display:flex; border-top: 1px solid var(--ligne); border-bottom: 1px solid var(--ligne); }
+  .bloc-infos div{ flex:1; padding: 18px 0; text-align:center; }
+  .bloc-infos div + div{ border-left: 1px solid var(--ligne); }
+  .bloc-infos .label{ font-family:'Jost', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--or); margin: 0 0 6px; }
+  .bloc-infos .valeur{ font-family:'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; margin:0; }
+  .reprographie{ margin: 18px 44px 0; text-align:center; font-size: 14px; color: var(--encre-douce); }
+  .reprographie a{ color: var(--or); text-decoration: none; border-bottom: 1px solid var(--or-clair); }
+  .reprographie a:hover{ color: var(--encre); border-bottom-color: var(--encre); }
+  .contact{ margin: 34px 44px 0; padding-top: 24px; border-top: 1px solid var(--ligne); text-align:center; }
+  .contact .titre-rubrique{ font-family:'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--or); margin: 0 0 24px; }
+  .encarts{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 24px; text-align:left; }
+  .encart{ background: var(--ivoire-carte); border: 1px solid var(--ligne); padding: 22px 24px; display:flex; align-items:center; gap: 18px; }
+  .encart img{ width: 96px; height: 96px; object-fit: contain; flex-shrink: 0; }
+  .encart .encart-corps h3{ font-family:'Jost', sans-serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--or); margin: 0 0 8px; }
+  .encart ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap: 4px; font-family:'Jost', sans-serif; font-size: 14px; color: var(--encre-douce); }
+  .encart a{ color: var(--encre); text-decoration:none; }
+  .encart a:hover{ color: var(--or); }
+  @media (max-width: 640px){ .encart{ flex-direction:column; text-align:center; } }
+  .pied{ text-align:center; margin-top: 30px; font-family:'Jost', sans-serif; font-size: 11px; letter-spacing: 1px; color: var(--encre-douce); opacity: 0.7; }
+  @media (max-width: 480px){
+    .retour{ padding: 20px 22px 0; } .en-tete{ padding: 32px 22px 18px; } .cadre-image{ margin: 6px 16px 0; padding:10px; }
+    .phrases{ padding: 24px 22px 8px; } .rappel-serie{ margin: 24px 22px 0; padding: 16px 18px; }
+    .ambiance{ margin: 20px 22px 0; padding: 16px 18px; } .bloc-infos{ margin: 24px 22px 0; }
+    .reprographie{ margin: 16px 22px 0; } .contact{ margin: 28px 22px 0; }
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .carte{ animation: apparition 0.7s ease-out; }
+    @keyframes apparition{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
+  }
+</style>
+</head>
+<body>
+
+<div class="fond">
+  <div class="carte">
+
+    <a class="retour" href="artiste-thierry.html">← Retour à Thierry Voitot</a>
+
+    <header class="en-tete">
+      <p class="eyebrow">Via Gnosis · Salon des Arts de Sochaux</p>
+      <p class="serie-label">Thierry Voitot — Œuvre n° 5</p>
+      <h1>La naissance du blues</h1>
+    </header>
+
+    <div class="cadre-image">
+      <div class="placeholder">Visuel définitif à intégrer</div>
+    </div>
+    <p class="signature-nova">Thierry Voitot</p>
+
+    <div class="phrases">
+      <p class="phrase">« Un accord se penche, hésite, puis choisit d'exister. »</p>
+      <div class="separateur-or"><span>✦</span></div>
+      <p class="phrase">« C'est ainsi que naît le blues — d'un manque qui se met à chanter. »</p>
+    </div>
+
+    <div class="ambiance">
+      <p class="titre-rubrique">Ambiance sonore</p>
+      <p class="sous-titre">Un morceau instrumental composé pour accompagner cette œuvre</p>
+      <p class="a-venir">Piste à venir</p>
+    </div>
+
+    <div class="bloc-infos">
+      <div>
+        <p class="label">Dimensions</p>
+        <p class="valeur">30 × 40 cm</p>
+      </div>
+      <div>
+        <p class="label">Valeur</p>
+        <p class="valeur">100 €</p>
+      </div>
+    </div>
+    <p class="reprographie">Autres formats — <a href="mailto:tvoitot.ia@gmail.com">nous consulter sur devis</a></p>
+
+    <div class="contact">
+      <p class="titre-rubrique">Nous contacter</p>
+      <div class="encarts">
+
+        <article class="encart">
+          <img src="logo-via-gnosis.png" alt="Logo VIA GNOSIS">
+          <div class="encart-corps">
+            <h3>Artiste : Thierry VOITOT</h3>
+            <ul>
+              <li><a href="mailto:tvoitot.ia@gmail.com">tvoitot.ia@gmail.com</a></li>
+              <li><a href="tel:+33683582755">06 83 58 27 55</a></li>
+              <li><a href="https://tvt90.github.io/artist-presentation/" target="_blank" rel="noopener">tvt90.github.io/artist-presentation</a></li>
+            </ul>
+          </div>
+        </article>
+
+
+        <article class="encart">
+          <div class="encart-corps">
+            <h3>Artiste : Marie-Thérèse LECRILLE</h3>
+            <ul>
+              <li><a href="mailto:leconnetabledufelin@gmail.com">leconnetabledufelin@gmail.com</a></li>
+              <li><a href="tel:+33631130004">06 31 13 00 04</a></li>
+              <li><a href="https://tvt90.github.io/Presentation_Artiste_Marie-Therese_LECRILLE/" target="_blank" rel="noopener">Présentation de l'artiste</a></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <p class="pied">24ᵉ Salon des Arts de Sochaux — 29 et 30 août 2026</p>
+
+  </div>
+</div>
+
+</body>
+</html>

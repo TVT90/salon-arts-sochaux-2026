@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marie-Thérèse Lecrille — Salon des Arts de Sochaux</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivoire: #f6f1e6;
+    --ivoire-carte: #fbf8f1;
+    --encre: #26221c;
+    --encre-douce: #4a4438;
+    --or: #b8903c;
+    --or-clair: #d9b876;
+    --or-vif: #c89a3f;
+    --ligne: #e4dac4;
+    --ombre: rgba(38,34,28,0.14);
+}
+  *{ box-sizing:border-box; }
+  body{ margin:0; background: var(--ivoire); color: var(--encre); font-family: 'EB Garamond', serif; -webkit-font-smoothing: antialiased; }
+  .fond{ min-height:100vh; padding: 56px 20px 48px; display:flex; justify-content:center; }
+  .page{ width:100%; max-width: 980px; }
+  .retour{ display:inline-block; font-family:'Jost', sans-serif; font-size: 13px; letter-spacing: 0.5px; color: var(--encre-douce); text-decoration:none; margin-bottom: 28px; }
+  .retour:hover{ color: var(--or); }
+  header.serie-header{ text-align:center; margin-bottom: 48px; }
+  .eyebrow{ font-family:'Jost', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--or); margin: 0 0 10px; }
+  h1{ font-family:'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(36px, 6vw, 50px); line-height: 1.05; margin: 0 0 16px; }
+  .description{ max-width: 600px; margin: 0 auto; font-size: 17px; line-height: 1.7; color: var(--encre-douce); }
+  .oeuvres{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-bottom: 56px; }
+  .carte-oeuvre{ background: var(--ivoire-carte); border: 1px solid var(--ligne); box-shadow: 0 20px 40px -24px var(--ombre); overflow:hidden; text-decoration:none; color: var(--encre); display:flex; flex-direction:column; transition: transform 0.15s ease; }
+  .carte-oeuvre:hover{ transform: translateY(-3px); }
+  .carte-oeuvre .miniature{ width:100%; aspect-ratio: 4/3; overflow:hidden; background: linear-gradient(150deg, var(--ivoire-carte), var(--ligne)); display:flex; align-items:center; justify-content:center; }
+  .carte-oeuvre .miniature span{ font-family:'Jost', sans-serif; font-size:11px; color: var(--encre-douce); opacity:.6; text-align:center; padding: 0 10px; }
+  .carte-oeuvre .info{ padding: 18px 20px 22px; flex-grow:1; display:flex; flex-direction:column; }
+  .carte-oeuvre .numero{ font-family:'Jost', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--or); margin: 0 0 6px; }
+  .carte-oeuvre h2{ font-family:'Cormorant Garamond', serif; font-weight: 600; font-size: 22px; margin: 0 0 10px; }
+  .carte-oeuvre .prix{ font-family:'Jost', sans-serif; font-size: 13px; color: var(--encre-douce); margin-top:auto; }
+  .ambiance{ margin: 24px 44px 0; padding: 20px 24px; background: var(--ivoire-carte); border: 1px solid var(--ligne); text-align:center; }
+  .ambiance .titre-rubrique{ font-family:'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--or); margin: 0 0 4px; }
+  .ambiance .sous-titre{ font-family:'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--encre-douce); margin: 0 0 14px; }
+  .ambiance .a-venir{ font-family:'Jost', sans-serif; font-size: 13px; color: var(--encre-douce); opacity: 0.75; padding: 10px 0; border: 1px dashed var(--or-clair); border-radius: 2px; }
+  .contact{ text-align:center; padding-top: 32px; border-top: 1px solid var(--ligne); margin-top: 32px; }
+  .contact .titre-rubrique{ font-family:'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--or); margin: 0 0 14px; }
+  .contact ul{ list-style:none; margin:0 0 24px; padding:0; display:flex; flex-direction:column; gap: 6px; font-family:'Jost', sans-serif; font-size: 14px; color: var(--encre-douce); }
+  .contact a{ color: var(--encre); text-decoration:none; }
+  .contact a:hover{ color: var(--or); }
+  .pied{ text-align:center; font-family:'Jost', sans-serif; font-size: 11px; letter-spacing: 1px; color: var(--encre-douce); opacity: 0.7; }
+  @media (max-width: 480px){ .fond{ padding: 40px 16px 32px; } .ambiance{ margin: 20px 22px 0; padding: 16px 18px; } }
+  @media (prefers-reduced-motion: no-preference){
+    .page{ animation: apparition 0.7s ease-out; }
+    @keyframes apparition{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
+  }
+</style>
+</head>
+<body>
+<div class="fond">
+  <div class="page">
+
+    <a class="retour" href="index.html">← Retour à l'exposition</a>
+
+    <header class="serie-header">
+      <p class="eyebrow">Via Gnosis · Salon des Arts de Sochaux</p>
+      <h1>Marie-Thérèse Lecrille</h1>
+      <p class="description">Trois œuvres hybrides, nées d'un dialogue à deux mains&nbsp;: la matrice Dibond générée par intelligence artificielle par Thierry Voitot, prolongée et réinventée à l'huile par Marie-Thérèse Lecrille.</p>
+    </header>
+
+    <section class="oeuvres">
+      <a class="carte-oeuvre" href="oeuvre-01-le-dortoir-des-fees.html">
+        <div class="miniature"><span>Visuel à intégrer</span></div>
+        <div class="info">
+          <p class="numero">Œuvre n° 1</p>
+          <h2>Le dortoir des fées</h2>
+          <p class="prix">50 × 70 cm — 800 €</p>
+        </div>
+      </a>
+      <a class="carte-oeuvre" href="oeuvre-02-dragons-de-la-foret.html">
+        <div class="miniature"><span>Visuel à intégrer</span></div>
+        <div class="info">
+          <p class="numero">Œuvre n° 2</p>
+          <h2>Dragons de la forêt</h2>
+          <p class="prix">Triptyque, 3 × 30×30 cm — 600 €</p>
+        </div>
+      </a>
+      <a class="carte-oeuvre" href="oeuvre-03-dolmens-et-korrigans.html">
+        <div class="miniature"><span>Visuel à intégrer</span></div>
+        <div class="info">
+          <p class="numero">Œuvre n° 3</p>
+          <h2>Dolmens et Korrigans</h2>
+          <p class="prix">Triptyque, 3 × 30×30 cm — 600 €</p>
+        </div>
+      </a>
+
+    </section>
+
+    <div class="ambiance">
+      <p class="titre-rubrique">Ambiance sonore · Marie-Thérèse Lecrille</p>
+      <p class="sous-titre">Un morceau instrumental composé pour accompagner cette présentation</p>
+      <p class="a-venir">Piste à venir</p>
+    </div>
+
+    <div class="contact">
+      <p class="titre-rubrique">Nous contacter</p>
+      <ul>
+        <li><a href="mailto:tvoitot.ia@gmail.com">tvoitot.ia@gmail.com</a></li>
+        <li><a href="tel:+33683582755">06 83 58 27 55</a></li>
+        <li><a href="https://tvt90.github.io/artist-presentation/" target="_blank" rel="noopener">tvt90.github.io/artist-presentation</a></li>
+      </ul>
+      <p class="pied">24ᵉ Salon des Arts de Sochaux — 29 et 30 août 2026</p>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
