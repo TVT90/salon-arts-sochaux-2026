@@ -54,6 +54,20 @@
     @keyframes apparition{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
   }
 
+  .bouton-son{
+    position: fixed; right: 20px; bottom: 20px; z-index: 30;
+    width: 42px; height: 42px; border-radius: 50%;
+    background: rgba(38,34,28,0.55); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s ease;
+  }
+  .bouton-son:hover{ background: rgba(38,34,28,0.75); }
+  .bouton-son svg{ width: 20px; height: 20px; }
+  .bouton-son .icone-muet{ display: none; }
+  .bouton-son.muet .icone-son{ display: none; }
+  .bouton-son.muet .icone-muet{ display: block; }
+  @media (max-width: 480px){ .bouton-son{ right: 14px; bottom: 14px; } }
+
 </style>
 </head>
 <body>
@@ -110,12 +124,28 @@
 </div>
 
 <audio id="ambiance-seuil" loop preload="auto" style="display:none"></audio>
+<button id="bouton-son" class="bouton-son" type="button" aria-label="Couper ou activer la musique d'ambiance" title="Musique d'ambiance">
+  <svg class="icone-son" viewBox="0 0 24 24" fill="none" stroke="#f1e8d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="3 9 3 15 8 15 13 20 13 4 8 9 3 9"></polygon>
+    <path d="M16 8a5 5 0 0 1 0 8"></path>
+    <path d="M18.5 5.5a9 9 0 0 1 0 13"></path>
+  </svg>
+  <svg class="icone-muet" viewBox="0 0 24 24" fill="none" stroke="#f1e8d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="3 9 3 15 8 15 13 20 13 4 8 9 3 9"></polygon>
+    <line x1="16" y1="9" x2="22" y2="15"></line>
+    <line x1="22" y1="9" x2="16" y2="15"></line>
+  </svg>
+</button>
 <script>
 (function(){
   var audio = document.getElementById('ambiance-seuil');
-  if (!audio) return;
+  var bouton = document.getElementById('bouton-son');
+  if (!audio || !bouton) return;
   audio.src = 'audio/ambiance-accueil.mp3';
   var saved = sessionStorage.getItem('seuil-position');
+  var mute = sessionStorage.getItem('seuil-muet') === '1';
+  audio.muted = mute;
+  if (mute) { bouton.classList.add('muet'); }
   function resume(){
     if (saved) {
       var t = parseFloat(saved);
@@ -128,6 +158,12 @@
   window.addEventListener('pagehide', save);
   window.addEventListener('beforeunload', save);
   setInterval(save, 1000);
+  bouton.addEventListener('click', function(){
+    audio.muted = !audio.muted;
+    bouton.classList.toggle('muet', audio.muted);
+    try { sessionStorage.setItem('seuil-muet', audio.muted ? '1' : '0'); } catch(e){}
+    if (!audio.muted) { audio.play().catch(function(){}); }
+  });
 })();
 </script>
 
