@@ -54,20 +54,6 @@
     @keyframes apparition{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
   }
 
-  .lecteur-seuil{
-    position: fixed; left: 20px; bottom: 20px; z-index: 30;
-    background: var(--ivoire-carte); border: 1px solid var(--ligne);
-    box-shadow: 0 10px 24px -12px var(--ombre);
-    padding: 10px 14px; display:flex; align-items:center; gap:10px;
-    font-family:'Jost', sans-serif; font-size: 11px; color: var(--encre-douce);
-  }
-  .lecteur-seuil span{ letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
-  .lecteur-seuil audio{ height: 30px; max-width: 200px; }
-  @media (max-width: 480px){
-    .lecteur-seuil{ left: 10px; right: 10px; bottom: 10px; }
-    .lecteur-seuil audio{ max-width: none; flex-grow: 1; }
-  }
-
 </style>
 </head>
 <body>
@@ -123,16 +109,12 @@
   </div>
 </div>
 
-<div class="lecteur-seuil">
-  <span>Ouverture</span>
-  <audio id="ambiance-seuil" controls loop preload="auto">
-    <source src="audio/ambiance-accueil.mp3" type="audio/mpeg">
-  </audio>
-</div>
+<audio id="ambiance-seuil" loop preload="auto" style="display:none"></audio>
 <script>
 (function(){
   var audio = document.getElementById('ambiance-seuil');
   if (!audio) return;
+  audio.src = 'audio/ambiance-accueil.mp3';
   var saved = sessionStorage.getItem('seuil-position');
   function resume(){
     if (saved) {
