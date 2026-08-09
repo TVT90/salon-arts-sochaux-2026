@@ -61,6 +61,10 @@
   }
   .carte-serie .lien:hover{ color: var(--encre); border-bottom-color: var(--encre); }
 
+  .duo{ display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-bottom: var(--space-3); }
+  .duo-col{ display:flex; flex-direction:column; gap: var(--space-3); }
+  @media (max-width: 720px){ .duo{ grid-template-columns: 1fr; } }
+
   .contact{ text-align:center; padding-top: 32px; border-top: 1px solid var(--ligne); }
   .contact .titre-rubrique{ font-family:'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--or); margin: 0 0 24px; }
   .encarts{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 24px; text-align:left; }
@@ -108,39 +112,15 @@
       </div>
     </header>
 
-    <section class="series">
+    <section class="duo">
 
-      <article class="carte-serie">
-        <p class="numero">Artiste</p>
-        <h2>Marie-Thérèse Lecrille</h2>
-        <p>Trois œuvres hybrides uniques : des matrices Dibond nées de l'imaginaire de Thierry Voitot et matérialisées avec l'aide de l'IA, puis prolongées, façonnées et animées par la main de Marie-Thérèse Lecrille qui leur donne chair.</p>
-        <a class="lien" href="artiste-marie-therese.html">Découvrir</a>
-      </article>
-
-      <article class="carte-serie">
-        <p class="numero">Artiste</p>
-        <h2>Thierry Voitot</h2>
-        <p>Six œuvres originales — cinq issues de la collection « Papier mâché », la sixième en Dibond tridimensionnel — matérialisées avec l'accompagnement d'une IA et reprographiées sur papier photographique et support innovant.</p>
-        <a class="lien" href="artiste-thierry.html">Découvrir</a>
-      </article>
-
-    </section>
-
-    <div class="contact">
-      <p class="titre-rubrique">Nous contacter</p>
-      <div class="encarts">
-
-        <article class="encart">
-          <div class="encart-corps">
-            <h3>Artiste : Thierry VOITOT</h3>
-            <ul>
-              <li><a href="mailto:tvoitot.ia@gmail.com">tvoitot.ia@gmail.com</a></li>
-              <li><a href="tel:+33683582755">06 83 58 27 55</a></li>
-              <li><a href="https://tvt90.github.io/artist-presentation/" target="_blank" rel="noopener">tvt90.github.io/artist-presentation</a></li>
-            </ul>
-          </div>
+      <div class="duo-col">
+        <article class="carte-serie">
+          <p class="numero">Artiste</p>
+          <h2>Marie-Thérèse Lecrille</h2>
+          <p>Trois œuvres hybrides uniques : des matrices Dibond nées de l'imaginaire de Thierry Voitot et matérialisées avec l'aide de l'IA, puis prolongées, façonnées et animées par la main de Marie-Thérèse Lecrille qui leur donne chair.</p>
+          <a class="lien" href="artiste-marie-therese.html">Découvrir</a>
         </article>
-
 
         <article class="encart">
           <div class="encart-corps">
@@ -154,8 +134,31 @@
         </article>
 
       </div>
-      <p class="pied">24ᵉ Salon des Arts de Sochaux — 29 et 30 août 2026</p>
-    </div>
+
+      <div class="duo-col">
+        <article class="carte-serie">
+          <p class="numero">Artiste</p>
+          <h2>Thierry Voitot</h2>
+          <p>Six œuvres originales — cinq issues de la collection « Papier mâché », la sixième en Dibond tridimensionnel — matérialisées avec l'accompagnement d'une IA et reprographiées sur papier photographique et support innovant.</p>
+          <a class="lien" href="artiste-thierry.html">Découvrir</a>
+        </article>
+
+        <article class="encart">
+          <div class="encart-corps">
+            <h3>Artiste : Thierry VOITOT</h3>
+            <ul>
+              <li><a href="mailto:tvoitot.ia@gmail.com">tvoitot.ia@gmail.com</a></li>
+              <li><a href="tel:+33683582755">06 83 58 27 55</a></li>
+              <li><a href="https://tvt90.github.io/artist-presentation/" target="_blank" rel="noopener">tvt90.github.io/artist-presentation</a></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <p class="pied" style="text-align:center;">24ᵉ Salon des Arts de Sochaux — 29 et 30 août 2026</p>
 
   </div>
 </div>
